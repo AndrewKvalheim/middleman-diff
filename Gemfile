@@ -1,8 +1,5 @@
-# If you have OpenSSL installed, we recommend updating
-# the following line to use "https"
 source 'http://rubygems.org'
 
-# Specify your gem's dependencies in middleman-diff.gemspec
 gemspec
 
 group :development do
@@ -12,8 +9,8 @@ group :development do
 end
 
 group :test do
+  gem 'aruba'
   gem 'cucumber'
   gem 'fivemat'
-  gem 'aruba'
   gem 'rspec'
 end
