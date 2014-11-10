@@ -26,14 +26,23 @@ current build:
 
 ```console
 $ middleman diff
---- a/index.html
-+++ b/index.html
+      create  tmp/preview/index.html
+ {build => tmp/preview}/index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-   <h1>Hello there!</h1>
--  <p>This site is kind of alright.</p>
-+  <p>This site is awesome.</p>
-
-Would you like to keep this build? [y/N] y
+diff --git a/build/index.html b/tmp/preview/index.html
+index 68c37b9..218e4ff 100644
+--- a/build/index.html
++++ b/tmp/preview/index.html
+@@ -5,6 +5,6 @@
+   </head>
+   <body>
+     <h1>Hello there!</h1>
+-    <p>This site is kind of alright.</p>
++    <p>This site is awesome.</p>
+   </body>
+ </html>
+Would you like to apply these changes to the build? [y/N] y
 Build has been updated.
 ```
 
@@ -43,9 +52,9 @@ The following configuration options are available:
 
 Name          | Default   | Description
 ------------- | --------- | ---------------------------------------------------
-`build_hooks` | `false`   | Whether to run `after_build` hooks after keeping the build
-`keep`        | `:prompt` | Whether to keep the build always (`:always`), never (`:never`), or to prompt each time (`:prompt`)
-`temp_dir`    | `'tmp'`   | Path in which to build when previewing
+`build_hooks` | `true`    | Whether to run build hooks when previewing the build
+`keep`        | `:prompt` | Whether to `:always`, `:never`, or `:prompt` to keep the preview as the build
+`temp_dir`    | `'tmp'`   | Directory in which to build when previewing
 
 
   [build-status]: https://travis-ci.org/AndrewKvalheim/middleman-diff
