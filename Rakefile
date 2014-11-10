@@ -1,15 +1,25 @@
 require 'bundler'
-Bundler::GemHelper.install_tasks
-
-require 'cucumber/rake/task'
-
-Cucumber::Rake::Task.new(:cucumber, 'Run features that should pass') do |t|
-  format = ENV['CUCUMBER_FORMAT'] || 'Fivemat'
-  t.cucumber_opts = "--color --tags ~@wip --strict --format #{format}"
-end
-
 require 'rake/clean'
 
-task test: %w(cucumber)
+# Gem helpers
+Bundler::GemHelper.install_tasks
 
+# Feature tests
+begin
+  require 'cucumber'
+  require 'cucumber/rake/task'
+
+  Cucumber::Rake::Task.new(:features)
+rescue
+  desc 'Cucumber is not available.'
+  task :features do
+    abort 'Cucumber is not available.'
+  end
+end
+
+# All tests
+desc 'Run all tests.'
+task test: %w(features)
+
+# Default
 task default: :test

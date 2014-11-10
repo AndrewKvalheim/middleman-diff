@@ -12,5 +12,6 @@ group :test do
   gem 'aruba'
   gem 'cucumber'
   gem 'fivemat'
+  gem 'middleman'
   gem 'rspec'
 end
