@@ -2,5 +2,6 @@
 /tmp
 
 # Bundler
+/bin
 /Gemfile.lock
 /pkg
