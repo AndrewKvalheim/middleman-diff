@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'rake', group: [:development, :test]
+
 group :development do
-  gem 'rake'
   gem 'rdoc'
   gem 'yard'
 end

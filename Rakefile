@@ -9,7 +9,9 @@ begin
   require 'cucumber'
   require 'cucumber/rake/task'
 
-  Cucumber::Rake::Task.new(:features)
+  Cucumber::Rake::Task.new(:features) do |cucumber|
+    cucumber.cucumber_opts = '--profile ci' if ENV['CI'] == 'true'
+  end
 rescue
   desc 'Cucumber is not available.'
   task :features do

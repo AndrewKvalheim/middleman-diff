@@ -1,1 +1,2 @@
+ci: --format pretty
 default: --format Fivemat
